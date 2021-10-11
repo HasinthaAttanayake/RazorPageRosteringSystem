@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPageRosteringSystem.Data;
 using RazorPageRosteringSystem.Models;
 
-namespace RazorPageRosteringSystem.Pages.Staffers
+namespace RazorPageRosteringSystem.Pages.Roles
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace RazorPageRosteringSystem.Pages.Staffers
         }
 
         [BindProperty]
-        public Staff Staff { get; set; }
+        public Role Role { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,10 +29,9 @@ namespace RazorPageRosteringSystem.Pages.Staffers
                 return NotFound();
             }
 
-            Staff = await _context.Staff
-                .Include(s => s.Role).FirstOrDefaultAsync(m => m.staffID == id);
+            Role = await _context.Role.FirstOrDefaultAsync(m => m.roleID == id);
 
-            if (Staff == null)
+            if (Role == null)
             {
                 return NotFound();
             }
@@ -46,11 +45,11 @@ namespace RazorPageRosteringSystem.Pages.Staffers
                 return NotFound();
             }
 
-            Staff = await _context.Staff.FindAsync(id);
+            Role = await _context.Role.FindAsync(id);
 
-            if (Staff != null)
+            if (Role != null)
             {
-                _context.Staff.Remove(Staff);
+                _context.Role.Remove(Role);
                 await _context.SaveChangesAsync();
             }
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPageRosteringSystem.Data;
 using RazorPageRosteringSystem.Models;
 
-namespace RazorPageRosteringSystem.Pages.Staffers
+namespace RazorPageRosteringSystem.Pages.Roles
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace RazorPageRosteringSystem.Pages.Staffers
         }
 
         [BindProperty]
-        public Staff Staff { get; set; }
+        public Role Role { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,12 @@ namespace RazorPageRosteringSystem.Pages.Staffers
                 return NotFound();
             }
 
-            Staff = await _context.Staff
-                .Include(s => s.Role).FirstOrDefaultAsync(m => m.staffID == id);
+            Role = await _context.Role.FirstOrDefaultAsync(m => m.roleID == id);
 
-            if (Staff == null)
+            if (Role == null)
             {
                 return NotFound();
             }
-           ViewData["roleID"] = new SelectList(_context.Role, "roleID", "roleID");
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace RazorPageRosteringSystem.Pages.Staffers
                 return Page();
             }
 
-            _context.Attach(Staff).State = EntityState.Modified;
+            _context.Attach(Role).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace RazorPageRosteringSystem.Pages.Staffers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StaffExists(Staff.staffID))
+                if (!RoleExists(Role.roleID))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace RazorPageRosteringSystem.Pages.Staffers
             return RedirectToPage("./Index");
         }
 
-        private bool StaffExists(int id)
+        private bool RoleExists(int id)
         {
-            return _context.Staff.Any(e => e.staffID == id);
+            return _context.Role.Any(e => e.roleID == id);
         }
     }
 }

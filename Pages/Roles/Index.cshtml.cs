@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPageRosteringSystem.Data;
 using RazorPageRosteringSystem.Models;
 
-namespace RazorPageRosteringSystem.Pages.Staffers
+namespace RazorPageRosteringSystem.Pages.Roles
 {
     public class IndexModel : PageModel
     {
@@ -19,12 +19,11 @@ namespace RazorPageRosteringSystem.Pages.Staffers
             _context = context;
         }
 
-        public IList<Staff> Staff { get;set; }
+        public IList<Role> Role { get;set; }
 
         public async Task OnGetAsync()
         {
-            Staff = await _context.Staff
-                .Include(s => s.Role).ToListAsync();
+            Role = await _context.Role.ToListAsync();
         }
     }
 }

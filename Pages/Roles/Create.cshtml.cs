@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using RazorPageRosteringSystem.Data;
 using RazorPageRosteringSystem.Models;
 
-namespace RazorPageRosteringSystem.Pages.Staffers
+namespace RazorPageRosteringSystem.Pages.Roles
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,11 @@ namespace RazorPageRosteringSystem.Pages.Staffers
 
         public IActionResult OnGet()
         {
-        ViewData["roleID"] = new SelectList(_context.Role, "roleID", "roleID");
             return Page();
         }
 
         [BindProperty]
-        public Staff Staff { get; set; }
+        public Role Role { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +35,7 @@ namespace RazorPageRosteringSystem.Pages.Staffers
                 return Page();
             }
 
-            _context.Staff.Add(Staff);
+            _context.Role.Add(Role);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

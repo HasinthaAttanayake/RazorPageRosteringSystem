@@ -15,5 +15,7 @@ namespace RazorPageRosteringSystem.Data
         }
 
         public DbSet<RazorPageRosteringSystem.Models.Staff> Staff { get; set; }
+
+        public DbSet<RazorPageRosteringSystem.Models.Role> Role { get; set; }
     }
 }
