@@ -29,7 +29,10 @@
                 @Html.DisplayNameFor(model => model.Staff[0].mob)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Staff[0].Role)
+                @Html.DisplayNameFor(model => model.Staff[0].Role.roleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff[0].Role.name)
             </th>
             <th></th>
         </tr>
@@ -54,6 +57,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Role.roleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.staffID">Edit</a> |

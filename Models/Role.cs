@@ -13,12 +13,15 @@ namespace RazorPageRosteringSystem.Models
         public int roleID { get; set; }
         [Display(Name = "Role Name")]
         [StringLength(80, MinimumLength = 3)]
+        [Required]
         public string name { get; set; }
         [Display(Name = "Role Description")]
         [StringLength(120, MinimumLength = 3)]
+        [Required]
         public string description { get; set; }
         [Display(Name = "Rate of Pay ($/hr)")]
         [DataType(DataType.Currency)]
+        [Required]
         public decimal ratehr { get; set; }
 
         // PK-FK Linkage
