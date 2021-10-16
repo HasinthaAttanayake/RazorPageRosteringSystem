@@ -71,7 +71,7 @@ namespace RazorPageRosteringSystem.Models
                         address = "10 George Street Sydney 2000",
                         dateOfBirth = DateTime.Parse("02-09-1994"),
                         email = "hasi@gmail.com",
-                        mob = "0430144491",
+                        mob = "0430124491",
                         roleID = getRoleFK("Resturant Manager")
                     },
                     new Staff
@@ -112,7 +112,7 @@ namespace RazorPageRosteringSystem.Models
                     },
                     new Staff
                     {
-                        name = "Jeoffory Bezoz",
+                        name = "Geoffory Bezoz",
                         address = "99/123 Martin Place Sydney 2000",
                         dateOfBirth = DateTime.Parse("12-10-1964"),
                         email = "jbee64@amazon.com",
@@ -139,21 +139,12 @@ namespace RazorPageRosteringSystem.Models
                     },
                     new Staff
                     {
-                        name = "Hasi",
-                        address = "112 asdas NSW",
-                        dateOfBirth = DateTime.Parse("02-09-1994"),
-                        email = "hasi@gmail.com",
-                        mob = "0430144490",
-                        roleID = getRoleFK("Cleaner")
-                    },
-                    new Staff
-                    {
-                        name = "Hasi",
-                        address = "112 asdas NSW",
-                        dateOfBirth = DateTime.Parse("02-09-1994"),
-                        email = "hasi@gmail.com",
-                        mob = "0430144490",
-                        roleID = getRoleFK("Cleaner")
+                        name = "John Howard",
+                        address = "89 Kirrabilli Place The Rocks 2001",
+                        dateOfBirth = DateTime.Parse("01-01-1948"),
+                        email = "johnhoward@primeminister.gov.au",
+                        mob = "0298152345",
+                        roleID = getRoleFK("Cook")
                     }
                 ) ;
                 context.SaveChanges();
